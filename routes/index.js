@@ -130,6 +130,19 @@ router.post('/sign-up', (req, res, next) => {
   })
 })
 
+router.post('/secret', async(req, res, next) => {
+  try {
+    if (req.body.secretWord.toLowerCase() === "hullaballoo") {
+      await UserSchema.findOneAndUpdate({username: req.user.username}, {$set: {membershipType: "member"}}).exec();
+      res.render("membership", {title: "Become a Member", showModal: true, user: req.user})
+    } else {
+      res.render('membership', {title: "Become a Member", showModal: true, showError: true, user: req.user})
+    }
+  } catch(err) {
+    return next(err);
+  }
+})
+
 router.get('/log-out', (req, res, next) => {
   req.logout((err) => {
     if (err) {
