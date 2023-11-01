@@ -2,11 +2,12 @@ extends layout
 
 block content 
   h1 #{user.username}'s Posts
-  section(class="user-posts-container") 
-    each post in user.posts 
-      section(class="user-post post")
-        a(href=`/profile/delete-post/${post.id}`) Delete Post
+  a(href="/add-post" class="add-post-btn") Add Post
+  section(class="post-container") 
+    each post, index in user.posts 
+      section(class=`post ${index % 2 === 0 ? "left" : "right"}`)
+        a(href=`/profile/delete-post/${post.id}` class="delete-post-btn") Delete Post
         span Posted on #{post.date} at #{post.time}
-        span Upvotes: #{post.upvotes}
+        //- span Upvotes: #{post.upvotes}
         p #{post.title}
         p #{post.body}

@@ -2,11 +2,13 @@ extends layout
 
 block content 
   h1 Become a member today, #{user.displayName}!
-  p Just find the secret word in this repo's README file. My repo can be found 
+  h3 Just find the secret word in this repo's README file. 
+  h3 My repo can be found 
     a(href='https://www.github.com/johnnyyork13/members-only' target="_blank") here!
+  br
   form(action="/secret" method="post")
     label(for="secretWord") Enter Secret Word Here: 
-    input(type="text" name="secretWord" value="hullaballoo")
+    input(type="text" name="secretWord")
     button Check Secret
   if (showModal)
     section(class="modal")

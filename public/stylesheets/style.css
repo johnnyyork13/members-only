@@ -1,8 +1,182 @@
-body {
-  padding: 50px;
+html, body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  --fifty: #ecfeff;
+  --one: #cffafe;
+  --two: #a5f3fc;
+  --three: #67e8f9;
+  --four: #22d3ee;
+  --five: #06b6d4;
+  --six: #0891b2;
+  --seven: #0e7490;
+  --eight: #155e75;
+  --nine: #164e63;
+  --nineFifty: #083344;
+  --textLight: #ecfeff;
+  --textDark:#155e75;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  background-color: var(--two);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  margin-left: 20px;
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+.links {
+  margin-right: 50px;
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.4em;
+}
+
+.links a {
+  margin-right: 20px;
+}
+
+main {
+  color: var(--textDark);
+  height: 100%;
+  width: 75%;
+  /* background-color: var(--fifty); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 a {
   color: #00B7FF;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--textDark);
+  cursor: pointer;
+}
+
+.add-post-btn {
+  position:fixed !important;
+  bottom: 0;
+  height: 40px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--seven);
+  margin: 0 !important;
+  text-decoration: none;
+  color: var(--textLight);
+  font-size: 1.5em;
+  font-weight: bolder;
+  border: 2px solid var(--nine);
+}
+
+.add-post-btn:hover {
+  background-color: var(--four);
+  color: var(--textDark);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  height: 20px;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+form input {
+  height: 40px;
+  box-sizing: border-box;
+  width: 350px;
+  margin-bottom: 30px;
+  font-size: 1.2em;
+  padding-left: 10px;
+}
+
+form button {
+  height: 40px;
+  width: 350px;
+  background-color: var(--seven);
+  border: 2px solid var(--nine);
+  color: var(--textLight);
+  font-weight: bolder;
+  font-size: 1.2em;
+}
+
+form textarea {
+  margin-bottom: 30px;
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: var(--four);
+  color: var(--textDark);
+}
+
+.post-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.post {
+  margin-top: 35px;
+  width: 75%;
+  background-color: var(--two);
+  border: 2px solid var(--six);
+  border-radius: 20px;
+  padding: 20px;
+  font-size: 1.2em;
+  position: relative;
+}
+
+.left {
+  align-self: flex-start;
+  border-bottom-left-radius: 0px;
+}
+
+.right {
+  align-self: flex-end;
+  border-bottom-right-radius: 0px;
+}
+
+.post-information {
+  position: absolute;
+  top: -30px;
+}
+
+.post-title {
+  font-size: 1.5em;
+}
+
+.delete-post-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.error-span {
+  color: red !important;
+  margin-left: 20px;
 }
