@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+  h1 Sign Up
+  form(action="/sign-up" method="POST")
+    label(for="username") Username
+      if usernameErrorMessage
+        span(class="error-span") #{usernameErrorMessage}
+    input(type="text" name="username")
+    label(for="displayName") Display Name 
+    input(type="text" name="displayName")
+    label(for="password") Password 
+    input(type="password" name="password")
+    label(for="confirmPassword") Confirm Password 
+    input(type="password" name="confirmPassword")
+    button Sign Up

@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+  h1 #{user.username}'s Posts
+  section(class="user-posts-container") 
+    each post in user.posts 
+      section(class="user-post post")
+        a(href=`/profile/delete-post/${post.id}`) Delete Post
+        span Posted on #{post.date} at #{post.time}
+        span Upvotes: #{post.upvotes}
+        p #{post.title}
+        p #{post.body}

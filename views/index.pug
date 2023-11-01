@@ -1,5 +1,18 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  section(class="posts")
+    h1 Posts
+      if (user)
+        a(href="/add-post") Add Post
+    section(class="post-container")
+      each post in posts 
+        section(class="post")
+          if (user !== undefined) && (user.membershipType === "admin")
+            a(href=`/admin/delete-post/${post.id}`) Delete Post
+          if (user !== undefined) && (user.membershipType === "member" || user.membershipType === "admin")
+            span Posted by: #{post.author} on #{post.date} at #{post.time} 
+          else
+            span Become a member to view posting details.  
+          p(class="post-title") #{post.title}
+          p(class="post-body") #{post.body}

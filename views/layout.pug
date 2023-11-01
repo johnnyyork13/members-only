@@ -4,4 +4,21 @@ html
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    header
+      section(class="logo")
+        a(href="/")
+          span Members 
+          span Only
+      section(class="links")
+        if (!user) 
+          a(href="/log-in") Login
+          a(href="/sign-up") Sign Up
+        else if (user.membershipType === "basic")
+          a(href="/membership") Become a Member
+          a(href="/profile") Profile
+          a(href="/log-out") Logout
+        else
+          a(href="/profile") Profile
+          a(href="/log-out") Logout
+    main
+      block content

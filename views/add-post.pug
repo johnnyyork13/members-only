@@ -1,0 +1,12 @@
+extends layout 
+
+block content 
+  h1 Add Post
+  form(action="/add-post" method="POST")
+    label(for="displayName") Display Name 
+    input(type="text" name="displayName" value=`${user.displayName}` readonly) 
+    label(for="title") Post Title
+    input(type="text" name="title")
+    label(for="body") Post Body 
+    textarea(name="body", cols="30", rows="10" style="resize: none;") 
+    button Submit Post
