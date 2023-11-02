@@ -4,7 +4,8 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
-require('dotenv').config();
+//require('dotenv').config();
+const DATABASE_URL = process.env.DATABASE_URL ? process.env.DATABASE_URL : "mongodb+srv://admin:Tonkita-22@cluster0.kna3k3z.mongodb.net/members_only?retryWrites=true&w=majority";
 const session = require('express-session');
 const mongoose = require('mongoose')
 const passport = require('passport');
@@ -14,7 +15,7 @@ const UserSchema = require('./models/user');
 
 const indexRouter = require('./routes/index');
 
-mongoose.connect(process.env.DATABASE_URL);
+mongoose.connect(DATABASE_URL);
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "mongo connection ereror"));
 
