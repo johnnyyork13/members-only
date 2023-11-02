@@ -1,18 +1,16 @@
 extends layout
 
 block content
-  section(class="posts")
-    h1 All Posts
-  if (user)
-    a(href="/add-post" class="add-post-btn") Add Post
-    section(class="post-container")
-      each post, index in posts 
-        section(class=`post ${index % 2 === 0 ? "left" : "right"}`)
-          if (user !== undefined) && (user.membershipType === "admin")
-            a(href=`/admin/delete-post/${post.id}` class="delete-post-btn") Delete Post
-          if (user !== undefined) && (user.membershipType === "member" || user.membershipType === "admin")
-            span(class="post-information") Posted by: #{post.author} on #{post.date} at #{post.time} 
-          else
-            span(class="post-information") Become a member to view posting details.  
-          p(class="post-title") #{post.title}
-          p(class="post-body") #{post.body}
+  h1 All Posts
+  a(href="/add-post" class="add-post-btn") Add Post
+  section(class="post-container")
+    each post, index in posts 
+      section(class=`post ${index % 2 === 0 ? "left" : "right"}`)
+        if (user !== undefined) && (user.membershipType === "admin")
+          a(href=`/admin/delete-post/${post.id}` class="delete-post-btn") Delete Post
+        if (user !== undefined) && (user.membershipType === "member" || user.membershipType === "admin")
+          span(class="post-information") Posted by: #{post.author} on #{post.date} at #{post.time} 
+        else
+          span(class="post-information") Become a member to view posting details.  
+        p(class="post-title") #{post.title}
+        p(class="post-body") #{post.body}

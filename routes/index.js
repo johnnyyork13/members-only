@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 /* GET home page. */
 router.get('/', async function(req, res, next) {
   const posts = await PostSchema.find().exec();
+  console.log(posts);
   res.render('index', { title: 'Members Only', user: req.user, posts: posts});
 });
 
