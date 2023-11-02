@@ -2,7 +2,6 @@ extends layout
 
 block content
   h1 All Posts
-  a(href="/add-post" class="add-post-btn") Add Post
   section(class="post-container")
     each post, index in posts 
       section(class=`post ${index % 2 === 0 ? "left" : "right"}`)
@@ -14,3 +13,5 @@ block content
           span(class="post-information") Become a member to view posting details.  
         p(class="post-title") #{post.title}
         p(class="post-body") #{post.body}
+  if user
+    a(href="/add-post" class="add-post-btn") Add Post
