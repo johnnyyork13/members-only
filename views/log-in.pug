@@ -4,7 +4,7 @@ block content
   h1 Log In
   form(action="/log-in" method="POST")
     label(for="username") Username 
-    input(type="text" name="username" value="johnnyyork13")
+    input(type="text" name="username" required="true")
     label(for="password") Password 
-    input(type="password" name="password" value="test")
+    input(type="password" name="password" required="true")
     button Login 

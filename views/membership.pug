@@ -8,13 +8,16 @@ block content
   br
   form(action="/secret" method="post")
     label(for="secretWord") Enter Secret Word Here: 
-    input(type="text" name="secretWord")
+    input(type="text" name="secretWord" required="true")
     button Check Secret
   if (showModal)
-    section(class="modal")
-      if (!showError)
-        p Congratulations! You now have member priveledges. 
-        a(href="/") Back Home
-      else 
-        p Incorrect secret word 
-        a(href="/membership") Try Again
+    section(class="modal-background")
+      section(class="modal")
+        if (!showError)
+          span
+            p(class="modal-p") Congratulations! 
+            p(class="modal-p") You now have member priveledges. 
+          a(href="/") Back Home
+        else 
+          p Incorrect secret word... 
+          a(href="/membership") Try Again

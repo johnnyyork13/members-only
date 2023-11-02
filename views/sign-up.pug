@@ -2,15 +2,17 @@ extends layout
 
 block content 
   h1 Sign Up
-  form(action="/sign-up" method="POST")
+  form(action="/sign-up" method="POST" id="signupForm")
     label(for="username") Username
       if usernameErrorMessage
-        span(class="error-span") #{usernameErrorMessage}
-    input(type="text" name="username")
+        span(class="error-span" id="usernameErrorMessage") #{usernameErrorMessage}
+    input(type="text" name="username" required="true")
     label(for="displayName") Display Name 
-    input(type="text" name="displayName")
+    input(type="text" name="displayName" required="true")
     label(for="password") Password 
-    input(type="password" name="password")
+    input(type="password" id="password" name="password" minlength="6" placeholder="Must be at least 6 characters long." required="true")
     label(for="confirmPassword") Confirm Password 
-    input(type="password" name="confirmPassword")
-    button Sign Up
+    div(class="password-container")
+      span(class="password-message" id="passwordMessage")
+      input(type="password" id="confirmPassword" name="confirmPassword" minlength="6" required="true")
+    button(id="signupBtn") Sign Up
